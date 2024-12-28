@@ -7,7 +7,7 @@
 ### by source
 
 ```bash
-$ dotnet publish --configuration Release --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true
+$ dotnet publish
 $ cd ./PathPolisher/bin/Release/net9.0/win-x64/publish
 # default: current directory
 $ pathpolisher --directory <target directory> # e.g. c:/users/username/documents
