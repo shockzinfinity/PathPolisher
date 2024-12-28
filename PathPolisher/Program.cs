@@ -52,7 +52,7 @@ internal class Program
     try
     {
       string filename = Path.GetFileName(file);
-      if (!IsNormalized(filename) && !IsSystemOrHiddenFile(file))
+      if (!filename.IsNormalized() && !IsSystemOrHidden(file))
       {
         string normalizedFileName = filename.Normalize();
         string normalizedPath = Path.Combine(Path.GetDirectoryName(file)!, normalizedFileName);
@@ -77,7 +77,7 @@ internal class Program
       string dirName = Path.GetFileName(dir);
       string parentPath = Path.GetDirectoryName(dir)!;
 
-      if (!IsNormalized(dirName) && !IsSystemOrHiddenDirectory(dir))
+      if (!dirName.IsNormalized() && !IsSystemOrHidden(dir))
       {
         string normalizedDirName = dirName.Normalize();
         string normalizedDirPath = Path.Combine(parentPath, normalizedDirName);
@@ -105,19 +105,7 @@ internal class Program
     }
   }
 
-  private static bool IsNormalized(string input)
-  {
-    return input.IsNormalized();
-  }
-
-  private static bool IsSystemOrHiddenFile(string path)
-  {
-    var attributes = File.GetAttributes(path);
-    return (attributes & FileAttributes.Hidden) == FileAttributes.Hidden ||
-      (attributes & FileAttributes.System) == FileAttributes.System;
-  }
-
-  private static bool IsSystemOrHiddenDirectory(string path)
+  private static bool IsSystemOrHidden(string path)
   {
     var attributes = File.GetAttributes(path);
     return (attributes & FileAttributes.Hidden) == FileAttributes.Hidden ||
