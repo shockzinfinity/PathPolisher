@@ -8,8 +8,7 @@ internal class Program
 
     var directoryParameter = new Option<DirectoryInfo>(
       aliases: new[] { "--directory", "-d" },
-      //getDefaultValue: () => new DirectoryInfo(Environment.CurrentDirectory),
-      getDefaultValue: () => new DirectoryInfo("c:/Users/shockz/TeamEPS/00.DSN.Solution"),
+      getDefaultValue: () => new DirectoryInfo(Environment.CurrentDirectory),
       description: "Target directory"
       );
 
