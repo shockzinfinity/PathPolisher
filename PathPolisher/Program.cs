@@ -7,7 +7,7 @@ internal class Program
     var rootCommand = new RootCommand("파일/디렉토리 이름 자음모음분리 현상 해결을 위한 툴");
 
     var directoryParameter = new Option<DirectoryInfo>(
-      aliases: new[] { "--directory", "-d" },
+      aliases: ["--directory", "-d"],
       getDefaultValue: () => new DirectoryInfo(Environment.CurrentDirectory),
       description: "Target directory"
       );
