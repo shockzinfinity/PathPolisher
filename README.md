@@ -7,20 +7,25 @@
 ### by source
 
 ```bash
-$ dotnet publish
+$ dotnet build && dotnet publish
 $ cd ./PathPolisher/bin/Release/net9.0/win-x64/publish
+
 # default: current directory
 $ pathpolisher --directory <target directory> # e.g. c:/users/username/documents
+$ pathpolisher -d <target directory>
 ```
 
 ### by dotnet tool
 
 ```bash
-$ dotnet pack
+$ dotnet build && dotnet pack
+
 # install dotnet global tool
 $ dotnet tool install --global --add-source ./nupkg PathPolisher
+
 # default: current directory
 $ polish --directory <target directory> # e.g. c:/users/username/documents
+$ polish -d <target directory>
 ```
 
 ```bash
