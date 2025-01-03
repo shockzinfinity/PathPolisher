@@ -33,6 +33,32 @@ $ polish -d <target directory>
 $ dotnet tool uninstall -g PathPolisher
 ```
 
+## Misc
+> build 를 위한 `.csproj` 설정
+
+- for build
+```xml
+<PropertyGroup>
+...
+<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+<SelfContained>true</SelfContained>
+<PublishSingleFile>true</PublishSingleFile>
+<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+...
+</PropertyGroup>
+```
+
+- for dotnet tool
+```xml
+<PropertyGroup>
+...
+<PackAsTool>true</PackAsTool>
+<ToolCommandName>polish</ToolCommandName>
+<PackageOutputPath>./nupkg</PackageOutputPath>
+...
+</PropertyGroup>
+```
+
 ## Reference
 
 - [자습서: 시작 System.CommandLine](https://learn.microsoft.com/ko-kr/dotnet/standard/commandline/get-started-tutorial)
